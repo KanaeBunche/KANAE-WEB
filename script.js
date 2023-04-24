@@ -1,10 +1,40 @@
-const h2=document.createElement ("h2");//document.createElement(htmlTag); allows us to create
-// HTML elements on the go. for example document.createElement("elementName");
-h2.textContent="This content added by JavaScript";
+let elements = document.querySelectorAll('.rolling-text');
 
-document.querySelector("body").appendChild(h2);//appendChild() is what attaches the h2
-//to the document if it was a div it would be ("body").appendChild(div);
+elements.forEach(element => {
+  let innerText = element.innerText;
+  element.innerHTML = '';
+  
+  let textContainer = document.createElement('div');
+  textContainer.classList.add('block');
+  
+  for (let letter of innerText) {
+    let span = document.createElement('span');
+    span.innerText = letter.trim() === '' ? '\xa0': letter;
+    span.classList.add('letter');
+    textContainer.appendChild(span);
+  }
+  
+  element.appendChild(textContainer);
+  element.appendChild(textContainer.cloneNode(true));
+});
 
 
-// another example is let newElement = document.createElement('input');
-//document.body.appendChild(newElement); //(This will add newelement to the body tab )
+
+
+
+// for presentation purpose
+setTimeout(() => {
+  elements.forEach(element => {
+    element.classList.add('play');
+  })
+}, 600);
+
+elements.forEach(element => {
+  element.addEventListener('mouseover', () => {
+    element.classList.remove('play');
+  });
+});
+
+
+
+
