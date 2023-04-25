@@ -172,7 +172,7 @@ h2{
 .panels{
   background:#fffffff6;
   box-shadow: 0 2rem 2rem #00000080;
-  min-height:200px;
+  min-height:80px;
   width:100%;
   max-width:500px;
   border-radius:3px;
@@ -227,7 +227,7 @@ h2{
     filter: grayscale(100%);
     z-index: -1;
   }
-  ß
+  
   .particle, .particle:after {
     background: transparent;
   }
