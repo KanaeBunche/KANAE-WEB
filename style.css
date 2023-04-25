@@ -147,86 +147,71 @@ header li a {
     color:black;
     text-decoration: none;
 }
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
 
-
-.tabs {
-    display: flex;
-    flex-wrap: wrap;
-    height: 300px;
-    width: 500px;
-  }
-   
-  .tabs label {
-    order: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 2rem;
-    margin-right: 0.2rem;
-    cursor: pointer;;
-    font-weight: bold;
-    transition: ease 0.3s;
-  }
-   
-  .tabs .tab {
-    order: 9;
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
-    display: none;
-    padding: 1rem;
-    background:rgb(208, 37, 37);
-    padding: 20px;
-    box-shadow: -10px 10px 0px 0px black;
-  }
-   
-  .tabs input[type="radio"] {
-    display: none;
-  }
-   
-  .tabs input[type="radio"]:checked + label {
-    background:  rgb(208, 37, 37);
-  }
-   
-  .tabs input[type="radio"]:checked + label + .tab {
-    display: block;
-  }
-   
-  @media (max-width: 465px) {
-    .tabs .tab,
-    .tabs label {
-     order: initial;
+h2{
+  color:#000;
+  text-align:center;
+  font-size:2em;
+}
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#000;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+.panels{
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  max-width:500px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;  
+}
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
     }
-   
-    .tabs label {
-      width: 300%;
-      margin-left: 50px;
+    to {
+        opacity:1;
     }
-  }
-   
-  .tab {
-    min-height: 0vh;
-    box-sizing: border-box;
-    padding-top: 10vh;
-    font-weight: 300;
-    line-height: 1.5;
-    max-width: 60rem;
-    margin: 0 auto;
-    font-size: 110%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:whitesmoke;
-  }
-  .tabs {
-    min-width: 50rem;
-
-  }
-/* Config */
-/* mixins */
-/* Styles */
-
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#000;
+  border-top: 3px solid #000;
+}
   
+
   .page-bg, .animation-wrapper {
     position: fixed;
     top: 0;
@@ -236,13 +221,13 @@ header li a {
   }
   
   .page-bg {
-    background: black;
-    /*background-blend-mode: screen;*/
+    background:none;
+    background-blend-mode: screen;
     background-size: cover;
     filter: grayscale(100%);
     z-index: -1;
   }
-  
+  ß
   .particle, .particle:after {
     background: transparent;
   }
@@ -282,9 +267,13 @@ header li a {
   }
   
   
+  .ball {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+  }
   
+
   
-  
- 
   
 
